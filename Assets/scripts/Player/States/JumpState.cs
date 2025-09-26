@@ -1,12 +1,10 @@
-
-using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 namespace Player
 {
-    public class RunningState : State
+    public class JumpState : State
     {
         // constructor
-        public RunningState(PlayerScript player, StateMachine sm) : base(player, sm)
+        public JumpState(PlayerScript player, StateMachine sm) : base(player, sm)
         {
         }
 
@@ -30,8 +28,8 @@ namespace Player
             player.CheckForIdle();
             Debug.Log("checking for idle");
             base.LogicUpdate();
-            player.CheckForJump();
-            Debug.Log("checking for jump");
+            player.CheckForRun();
+            Debug.Log("checking for run");
             base.LogicUpdate();
         }
 

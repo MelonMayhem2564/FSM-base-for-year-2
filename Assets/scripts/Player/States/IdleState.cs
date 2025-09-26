@@ -1,4 +1,3 @@
-
 using UnityEngine;
 namespace Player
 {
@@ -28,6 +27,12 @@ namespace Player
         {
             player.CheckForRun();
             Debug.Log("checking for run");
+            base.LogicUpdate();
+            player.CheckForJump();
+            Debug.Log("checking for jump");
+            base.LogicUpdate();
+            player.CheckForCrouch();
+            Debug.Log("checking for crouch");
             base.LogicUpdate();
         }
 

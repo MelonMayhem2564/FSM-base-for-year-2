@@ -7,15 +7,15 @@ using UnityEngine.VFX;
 namespace Player
 {
 
-
     public class PlayerScript : MonoBehaviour
     {
         public Rigidbody2D rb;
-        
 
         // variables holding the different player states
         public IdleState idleState;
         public RunningState runningState;
+        public JumpState jumpState;
+        public CrouchState crouchState;
 
         public StateMachine sm;
 
@@ -30,6 +30,8 @@ namespace Player
             // add new states here
             idleState = new IdleState(this, sm);
             runningState = new RunningState(this, sm);
+            jumpState = new JumpState(this, sm);
+            crouchState = new CrouchState(this, sm);
 
             // initialise the statemachine with the default state
             sm.Init(idleState);
@@ -46,7 +48,7 @@ namespace Player
 
             UIscript.ui.DrawText(s);
 
-            UIscript.ui.DrawText("Press I for idle / R for run");
+            UIscript.ui.DrawText("Press I for idle / R for run / J for jump / C for crouch");
 
         }
 
@@ -79,7 +81,23 @@ namespace Player
 
         }
 
+        public void CheckForJump()
+        {
+            if (Input.GetKey("j")) // key held down
+            {
+                sm.ChangeState(jumpState);
+            }
 
+        }
+
+        public void CheckForCrouch()
+        {
+            if (Input.GetKey("c")) // key held down
+            {
+                sm.ChangeState(crouchState);
+            }
+
+        }
 
     }
 

@@ -8,6 +8,7 @@ namespace Player
     {
         protected PlayerScript player;
         protected StateMachine sm;
+        public SpriteRenderer SpriteRenderer;
 
 
         // base constructor

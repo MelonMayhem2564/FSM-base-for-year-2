@@ -1,18 +1,18 @@
-
-using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 namespace Player
 {
-    public class RunningState : State
+    public class CrouchState : State
     {
         // constructor
-        public RunningState(PlayerScript player, StateMachine sm) : base(player, sm)
+        public CrouchState(PlayerScript player, StateMachine sm) : base(player, sm)
         {
         }
 
         public override void Enter()
         {
             base.Enter();
+
+            //
         }
 
         public override void Exit()
@@ -29,9 +29,6 @@ namespace Player
         {
             player.CheckForIdle();
             Debug.Log("checking for idle");
-            base.LogicUpdate();
-            player.CheckForJump();
-            Debug.Log("checking for jump");
             base.LogicUpdate();
         }
 
